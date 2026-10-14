@@ -1,0 +1,32 @@
+<h2>Cadastro de atores</h2>
+@if (sucesso) { <p class="sucesso" role="status">{{ sucesso }}</p> }
+@if (erro) { <p class="erro" role="alert">{{ erro }}</p> }
+<form #cadastro="ngForm" (ngSubmit)="salvar()">
+  <h3>{{ formulario.id !== undefined ? 'Editar registro' : 'Novo registro' }}</h3>
+  <label for="nome">Nome</label>
+  <input id="nome" name="nome" [(ngModel)]="formulario.nome" required [disabled]="salvando" />
+  <button type="submit" [disabled]="cadastro.invalid || !formulario.nome.trim() || salvando || carregando">{{ salvando ? 'Aguarde...' : 'Salvar' }}</button>
+  @if (formulario.id !== undefined) {
+    <button type="button" (click)="cancelar()" [disabled]="salvando">Cancelar edição</button>
+  }
+</form>
+<h3>Registros cadastrados</h3>
+@if (carregando) { <p role="status">Carregando registros...</p> }
+<div class="tabela">
+  <table>
+    <thead><tr><th scope="col">ID</th><th scope="col">Nome</th><th scope="col">Ações</th></tr></thead>
+    <tbody>
+      @for (registro of registros; track registro.id) {
+        <tr>
+          <td>{{ registro.id }}</td><td>{{ registro.nome }}</td>
+          <td>
+            <button type="button" (click)="editar(registro)" [disabled]="salvando || carregando">Editar</button>
+            <button type="button" (click)="excluir(registro)" [disabled]="salvando || carregando">Excluir</button>
+          </td>
+        </tr>
+      } @empty {
+        <tr><td colspan="3">{{ carregando ? 'Aguarde o carregamento.' : erro ? 'Lista indisponível.' : 'Nenhum registro cadastrado.' }}</td></tr>
+      }
+    </tbody>
+  </table>
+</div>

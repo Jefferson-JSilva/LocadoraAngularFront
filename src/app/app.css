@@ -1,0 +1,6 @@
+header { background: #24465a; color: white; padding: 20px; }
+h1 { margin: 0 0 16px; font-size: 24px; }
+nav { display: flex; flex-wrap: wrap; gap: 8px; }
+nav a { color: white; padding: 8px 12px; border-radius: 4px; text-decoration: none; }
+nav a:hover, nav a.ativo { background: #38647b; }
+main { max-width: 960px; margin: 24px auto; padding: 0 16px; }

@@ -1,0 +1,16 @@
+* { box-sizing: border-box; }
+body { margin: 0; font-family: Arial, sans-serif; color: #24313a; background: #f5f6f7; }
+form { padding: 20px; margin-bottom: 24px; background: white; border: 1px solid #ccd3d8; border-radius: 4px; }
+label { display: block; margin-bottom: 6px; }
+input, textarea { display: block; width: 100%; max-width: 500px; margin-bottom: 16px; padding: 9px; border: 1px solid #87959e; border-radius: 3px; font: inherit; }
+textarea { min-height: 80px; resize: vertical; }
+button { padding: 8px 12px; margin: 4px 8px 4px 0; border: 1px solid #647985; border-radius: 3px; background: white; color: #24313a; cursor: pointer; font: inherit; }
+button[type="submit"] { background: #24465a; color: white; }
+button:disabled { opacity: .55; cursor: default; }
+a:focus-visible, button:focus-visible, input:focus-visible, textarea:focus-visible { outline: 2px solid #176eac; outline-offset: 2px; }
+.tabela { overflow-x: auto; }
+table { width: 100%; border-collapse: collapse; background: white; }
+th, td { padding: 12px; border: 1px solid #ccd3d8; text-align: left; overflow-wrap: anywhere; }
+th { background: #e7edf0; }
+.sucesso { color: #24603a; }
+.erro { color: #a32222; }
